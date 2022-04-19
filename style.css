@@ -234,6 +234,7 @@ main{
 }
 .project-card img{
     width: 100%;
+    object-fit: fill;
     height: 200px;
 }
 .card-content{
