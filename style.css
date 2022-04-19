@@ -10,9 +10,49 @@ html{
 }
 body{
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 .navlinks{
-    display: none;
+    /* display: block; */
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 20px;
+    inset: 0 0 0 40%; 
+    background-color: rgba(201, 37, 37, 0.3);
+    backdrop-filter: blur(0.5em);
+    padding: 10rem 2em;
+    z-index: 99;
+    transform: translateX(100%);
+    transition: transform 350ms ease-in-out;
+    /* background-color: rgb(247, 242, 242);
+    position: absolute;
+    width: 80%;
+    z-index: 9999 !important; */
+    /* float: right; */
+}
+.navlinks[data-visible = true ]{
+    transform: translateX(0);
+
+}
+.menu{
+    /* position: absolute; */
+    /* right: 20px; */
+    z-index: 99;
+    /* top: 15px; */
+    cursor: pointer;
+}
+.nav-link{
+    display: block;
+    color: red ;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    z-index: 999;
 }
 header{
     background-image: url(https://s3.amazonaws.com/dadabenblog/2019/03/remoteWorkSpacePhoto.jpg);
@@ -21,19 +61,20 @@ header{
     background-position: 50%;
     background-attachment: fixed; 
     height: 80vh ;
-    position: relative;
+    /* position: relative; */
 }
 .header-wrapper{
     z-index: 1;
-    position: relative;
-    /* display: flex;
-    justify-content: space-between; */ 
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between; 
     align-items: center;
     padding: 3% 5%;
 }
 .logo{
     display: flex;
     justify-content: space-between;
+    z-index: 1;
     /* font-size: 20px;
     font-weight: bold; */
 }
@@ -372,9 +413,14 @@ footer div{
         display: none;
     }
     .navlinks{
-        display: unset;
+        display: block;
+        position: static;
+        background-color: unset;
+        padding: 0;
+        transform: unset;
     }
     .nav-link{
+        display: unset;
         color: white ;
         font-size: 20px;
         font-weight: bold;
