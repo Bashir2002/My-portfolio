@@ -1,14 +1,19 @@
-var navToggle = document.querySelector(".menu");
-var navigation = document.querySelector(".navlinks");
-// var visibility = navigation.getAttribute("data-visible");
+const navToggle = document.querySelector('.menu')
+const navigation = document.querySelector('.navlinks')
+const close = document.querySelector('.close')
 
-navToggle.addEventListener('click', (event) => {
-    // var visibility = navigation.getAttribute("data-visible")
-    // console.log(visibility);
-    if (navigation.getAttribute("data-visible")=== "false"){
-        navigation.setAttribute('data-visible', true )
-    }else{
-        navigation.setAttribute('data-visible', false )
-
-    }
+navToggle.addEventListener('click', () => {
+  navigation.classList.remove('hidden')
+})
+close.addEventListener('click', function (e) {
+  navigation.classList.add('hidden')
+})
+document.addEventListener('scroll', () => {
+  navigation.classList.add('hidden')
+})
+navigation.addEventListener('click', (e) => {
+  const key = e.target
+  if (key.classList.contains('nav-link')) {
+    navigation.classList.add('hidden')
+  }
 })
